@@ -48,7 +48,7 @@ def generate_line():
 
 for output_file in ["ptb.train.txt", "ptb.valid.txt", "ptb.test.txt"]:
     # NB(demi): probability of overlap is little
-    f = open(output_file, "w")
+    f = open(OUT_PATH + output_file, "w")
     for i in tqdm(range(N), desc=output_file):
         line = generate_line()
         f.write(" " + line + " \n")
