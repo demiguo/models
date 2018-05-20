@@ -17,7 +17,7 @@ def get_words(n=100):
     words = Set([])
     f = open(PTB_PATH)
     for line in f:
-        line_words = line,replace("\n", "").split(" ")
+        line_words = line.replace("\n", "").split(" ")
         for word in line_words:
             words.add(word)
     f.close()
@@ -48,7 +48,7 @@ def generate_line():
 
 for output_file in ["ptb.train.txt", "ptb.valid.txt", "ptb.test.txt"]:
     # NB(demi): probability of overlap is little
-    f = open(output_file)
+    f = open(output_file, "w")
     for i in tqdm(range(N), desc=output_file):
         line = generate_line()
         f.write(" " + line + " \n")
